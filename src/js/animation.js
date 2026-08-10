@@ -168,10 +168,67 @@ export const animate = function () {
 
       setTimeout(() => {
         frames[1].style.display = "none";
+        
+        // Show birthday card (frames[0])
         frames[0].style.display = "flex";
-        frames[0].classList.add("appear");
-        frames[0].style.opacity = "1";
+        setTimeout(() => {
+          frames[0].classList.add("appear");
+          frames[0].style.opacity = "1";
+        }, 100);
       }, (readTime + 3) * 1000);
+      
+      // After 8 seconds on birthday card, transition to bouquet page
+      setTimeout(() => {
+        frames[0].classList.remove("appear");
+        frames[0].style.opacity = "0";
+      }, (readTime + 3 + 8) * 1000);
+
+      setTimeout(() => {
+        frames[0].style.display = "none";
+        
+        // Show bouquet frame (frames[2])
+        frames[2].style.display = "flex";
+        setTimeout(() => {
+          frames[2].classList.add("appear");
+          frames[2].style.opacity = "1";
+        }, 100);
+      }, (readTime + 3 + 9) * 1000);
     }
   });
+
+  // Memories Gallery Event Listeners
+  const memoriesBtn = document.querySelector(".memories-btn");
+  const closeGalleryBtn = document.querySelector(".close-gallery-btn");
+
+  if (memoriesBtn) {
+    memoriesBtn.addEventListener("click", () => {
+      // Transition from bouquet page (frames[2]) to gallery (frames[3])
+      frames[2].classList.remove("appear");
+      frames[2].style.opacity = "0";
+      setTimeout(() => {
+        frames[2].style.display = "none";
+        frames[3].style.display = "flex";
+        setTimeout(() => {
+          frames[3].classList.add("appear");
+          frames[3].style.opacity = "1";
+        }, 100);
+      }, 500);
+    });
+  }
+
+  if (closeGalleryBtn) {
+    closeGalleryBtn.addEventListener("click", () => {
+      // Transition back from gallery (frames[3]) to bouquet page (frames[2])
+      frames[3].classList.remove("appear");
+      frames[3].style.opacity = "0";
+      setTimeout(() => {
+        frames[3].style.display = "none";
+        frames[2].style.display = "flex";
+        setTimeout(() => {
+          frames[2].classList.add("appear");
+          frames[2].style.opacity = "1";
+        }, 100);
+      }, 500);
+    });
+  }
 };

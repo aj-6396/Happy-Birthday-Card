@@ -354,3 +354,139 @@
     transform: translateY(0);
   }
 }
+
+// Memories Section
+
+.memories-btn {
+  background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+  color: white;
+  border: none;
+  padding: 1.2rem 3rem;
+  font-size: 1.8rem;
+  font-family: 'Courgette', cursive;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+  transition: all 0.3s ease;
+  animation: pulse-glow 2s infinite alternate;
+
+  &:hover {
+    transform: translateY(-3px) scale(1.05);
+    box-shadow: 0 6px 20px rgba(255, 117, 140, 0.6);
+  }
+
+  &:active {
+    transform: translateY(-1px);
+  }
+}
+
+@keyframes pulse-glow {
+  0% {
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+  }
+  100% {
+    box-shadow: 0 4px 25px rgba(255, 117, 140, 0.8);
+  }
+}
+
+.gallery-title {
+  font-family: 'Courgette', cursive;
+  font-size: 3.6rem;
+  color: #fff;
+  text-align: center;
+  margin-bottom: 2rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.gallery-grid {
+  display: flex;
+  justify-content: center;
+  gap: 3rem;
+  flex-wrap: wrap;
+  max-width: 90vw;
+  margin: 0 auto;
+}
+
+.polaroid {
+  background: #fff;
+  padding: 1.5rem;
+  padding-bottom: 2.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 4px;
+
+  &:nth-child(odd) {
+    transform: rotate(-3deg);
+  }
+  
+  &:nth-child(even) {
+    transform: rotate(3deg);
+  }
+
+  &:hover {
+    transform: rotate(0deg) scale(1.05);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
+    z-index: 10;
+  }
+}
+
+.gallery-img {
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border: 1px solid #ddd;
+}
+
+.polaroid-caption {
+  font-family: 'Courgette', cursive;
+  font-size: 1.8rem;
+  color: #333;
+  margin-top: 1.5rem;
+  text-align: center;
+}
+
+.close-gallery-btn {
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+  border: none;
+  font-size: 3rem;
+  width: 5rem;
+  height: 5rem;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.3s ease;
+  z-index: 110;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.4);
+    transform: scale(1.1);
+  }
+}
+
+.frame4 {
+  grid-row: 1 / -1 !important;
+  grid-column: 1 / -1 !important;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(20, 24, 82, 0.98);
+  z-index: 100;
+  overflow-y: auto !important;
+  display: none;
+  flex-direction: column;
+  justify-content: flex-start !important;
+  align-items: center;
+  padding: 8rem 2rem 4rem 2rem;
+  box-sizing: border-box;
+}
