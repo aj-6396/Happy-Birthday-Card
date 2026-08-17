@@ -1,0 +1,359 @@
+// COUNTDOWN PAGE STYLES
+
+.countdown-container {
+  min-height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at center, #1b2058 0%, #0a0c27 100%);
+  color: #ffffff;
+  padding: 3rem 1.5rem;
+  box-sizing: border-box;
+  position: relative;
+  overflow: hidden;
+  font-family: 'Courgette', cursive, sans-serif;
+  text-align: center;
+}
+
+// Background glowing particles
+.countdown-bg-glow {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 60vw;
+  height: 60vw;
+  max-width: 600px;
+  max-height: 600px;
+  background: radial-gradient(circle, rgba(255, 117, 140, 0.18) 0%, rgba(20, 24, 82, 0) 70%);
+  border-radius: 50%;
+  pointer-events: none;
+  animation: pulse-bg 4s ease-in-out infinite alternate;
+}
+
+@keyframes pulse-bg {
+  0% { transform: translate(-50%, -50%) scale(0.9); opacity: 0.6; }
+  100% { transform: translate(-50%, -50%) scale(1.15); opacity: 1; }
+}
+
+.countdown-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.8rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.6rem 1.8rem;
+  border-radius: 50px;
+  font-size: 1.4rem;
+  letter-spacing: 1px;
+  color: #ffb8d4;
+  margin-bottom: 2rem;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+  z-index: 2;
+}
+
+.countdown-title {
+  font-size: 3.8rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #ff9ebb 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 4px 20px rgba(255, 117, 140, 0.3);
+  z-index: 2;
+
+  @media (max-width: 600px) {
+    font-size: 2.8rem;
+  }
+}
+
+.countdown-subtitle {
+  font-size: 1.8rem;
+  color: rgba(255, 255, 255, 0.8);
+  max-width: 550px;
+  margin: 0 auto 3rem auto;
+  line-height: 1.5;
+  z-index: 2;
+
+  @media (max-width: 600px) {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+  }
+}
+
+// Counter Grid
+.counter-grid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  max-width: 900px;
+  width: 100%;
+  margin-bottom: 3rem;
+  z-index: 2;
+
+  @media (max-width: 600px) {
+    gap: 1.2rem;
+  }
+}
+
+// Individual Counter Card
+.counter-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-radius: 20px;
+  padding: 2rem 1.5rem;
+  min-width: 130px;
+  flex: 1;
+  max-width: 180px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+  user-select: none;
+  position: relative;
+  overflow: hidden;
+
+  &:hover {
+    transform: translateY(-8px) scale(1.03);
+    background: rgba(255, 255, 255, 0.14);
+    border-color: rgba(255, 117, 140, 0.5);
+    box-shadow: 0 20px 40px rgba(255, 117, 140, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+
+  &:active {
+    transform: translateY(-2px) scale(0.98);
+  }
+
+  @media (max-width: 600px) {
+    min-width: 100px;
+    padding: 1.5rem 1rem;
+    border-radius: 16px;
+  }
+
+  @media (max-width: 400px) {
+    min-width: 75px;
+    padding: 1.2rem 0.5rem;
+  }
+}
+
+.counter-number {
+  font-size: 4.8rem;
+  font-weight: 700;
+  font-family: monospace, sans-serif;
+  background: linear-gradient(180deg, #ffffff 30%, #ff758c 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.1;
+  margin-bottom: 0.5rem;
+  transition: transform 0.2s ease;
+
+  @media (max-width: 600px) {
+    font-size: 3.4rem;
+  }
+
+  @media (max-width: 400px) {
+    font-size: 2.8rem;
+  }
+}
+
+.counter-label {
+  font-size: 1.3rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: rgba(255, 255, 255, 0.7);
+  font-family: sans-serif;
+  font-weight: 600;
+
+  @media (max-width: 600px) {
+    font-size: 1.1rem;
+    letter-spacing: 1px;
+  }
+}
+
+.counter-card.pop-effect .counter-number {
+  animation: num-pop 0.3s ease-out;
+}
+
+@keyframes num-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.3); }
+  100% { transform: scale(1); }
+}
+
+// Mode Switcher Controls
+.counter-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.2rem;
+  flex-wrap: wrap;
+  z-index: 2;
+  margin-bottom: 2rem;
+}
+
+.mode-btn, .action-btn {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0.8rem 1.6rem;
+  border-radius: 30px;
+  font-size: 1.4rem;
+  font-family: inherit;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.18);
+    color: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  }
+
+  &.active {
+    background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+    color: white;
+    border-color: transparent;
+    box-shadow: 0 4px 15px rgba(255, 117, 140, 0.4);
+  }
+}
+
+.action-btn--primary {
+  background: linear-gradient(135deg, #6b11ff 0%, #9945ff 100%);
+  color: white;
+  border: none;
+  box-shadow: 0 4px 15px rgba(153, 69, 255, 0.4);
+
+  &:hover {
+    background: linear-gradient(135deg, #7c26ff 0%, #a85eff 100%);
+    box-shadow: 0 6px 20px rgba(153, 69, 255, 0.6);
+  }
+}
+
+.action-btn--preview {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px dashed rgba(255, 255, 255, 0.3);
+  font-size: 1.3rem;
+  color: #ffd166;
+
+  &:hover {
+    border-style: solid;
+    border-color: #ffd166;
+    background: rgba(255, 209, 102, 0.15);
+  }
+}
+
+// Floating hearts on click
+.click-heart {
+  position: fixed;
+  pointer-events: none;
+  font-size: 3.2rem;
+  animation: float-up-fade 1.4s cubic-bezier(0.215, 0.61, 0.355, 1) forwards;
+  z-index: 9999999;
+  filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.5));
+}
+
+@keyframes float-up-fade {
+  0% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(0.5) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: translate(-50%, -120px) scale(1.4) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: translate(-50%, -220px) scale(1) rotate(-15deg);
+  }
+}
+
+
+// Modal Popup
+.countdown-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(10, 12, 39, 0.85);
+  backdrop-filter: blur(12px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+
+  &.active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+.countdown-modal {
+  background: linear-gradient(135deg, rgba(30, 35, 90, 0.95) 0%, rgba(15, 18, 55, 0.95) 100%);
+  border: 1px solid rgba(255, 117, 140, 0.3);
+  border-radius: 24px;
+  padding: 3rem;
+  max-width: 480px;
+  width: 90vw;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 117, 140, 0.2);
+  text-align: center;
+  transform: scale(0.9);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  position: relative;
+
+  .countdown-modal-overlay.active & {
+    transform: scale(1);
+  }
+}
+
+.modal-close-btn {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: none;
+  color: white;
+  width: 3.6rem;
+  height: 3.6rem;
+  border-radius: 50%;
+  font-size: 2rem;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s ease;
+
+  &:hover {
+    background: rgba(255, 255, 255, 0.25);
+  }
+}
+
+.modal-title {
+  font-size: 2.8rem;
+  color: #ff9ebb;
+  margin-bottom: 1.5rem;
+}
+
+.modal-body {
+  font-size: 1.6rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.5rem;
+}
