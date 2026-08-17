@@ -87,6 +87,6 @@ If you have any queries or need some help in deployment, you may contact me here
 - [Email](mailto:rcoder.bytes@gmail.com)
 
 <div align="center">
-Made with 💖 by Anshuman Mahato
+Made with 💖 by AJ
 </div>
 
