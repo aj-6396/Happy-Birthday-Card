@@ -93,8 +93,8 @@ export function initCountdown() {
 
     <div class="counter-controls" style="margin-top: 1rem;">
       <button class="action-btn action-btn--primary" id="hugBtn">🤗 Send Warm Hug</button>
-      <button class="action-btn action-btn--preview" id="previewBtn">🔑 Preview Card Early</button>
     </div>
+
 
     <!-- Modal Popup for Virtual Hug -->
     <div class="countdown-modal-overlay" id="hugModal">
@@ -112,10 +112,10 @@ export function initCountdown() {
   const counterGrid = document.getElementById("counterGrid");
   const soundToggleBtn = document.getElementById("soundToggleBtn");
   const hugBtn = document.getElementById("hugBtn");
-  const previewBtn = document.getElementById("previewBtn");
   const hugModal = document.getElementById("hugModal");
   const closeModalBtn = document.getElementById("closeModalBtn");
   const sendMoreLoveBtn = document.getElementById("sendMoreLoveBtn");
+
 
   const unlockCelebration = () => {
     clearInterval(timerInterval);
@@ -186,13 +186,8 @@ export function initCountdown() {
   });
 
 
-  // Preview early bypass listener
-  previewBtn.addEventListener("click", () => {
-    playTickSound(900, 0.15);
-    unlockCelebration();
-  });
-
   let prevValues = {};
+
 
   function updateCountdown() {
     const now = Date.now();
