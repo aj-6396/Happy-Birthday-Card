@@ -17,14 +17,15 @@ const genIndex = function (markup) {
   }
 
   html = html
-    .replace("{{^READ_TIME}}", readVar)
-    .replace("{{^SCROLL_MSG}}", markup)
+    .replace(/\{\{\^READ_TIME\}\}/g, readVar)
+    .replace(/\{\{\^SCROLL_MSG\}\}/g, markup)
     .replace(
-      "{{^HBD_MSG}}",
+      /\{\{\^HBD_MSG\}\}/g,
       process.env.HBD_MSG || "Wish you a very Happy Birthday"
     )
-    .replace("{{^NAME}}", process.env.NAME)
-    .replace("{{^NICKNAME}}", process.env.NICKNAME || process.env.NAME);
+    .replace(/\{\{\^NAME\}\}/g, process.env.NAME || "Friend")
+    .replace(/\{\{\^NICKNAME\}\}/g, process.env.NICKNAME || process.env.NAME || "Friend");
+
 
   fs.writeFileSync(path.join(__dirname, "../src/index.html"), html, {
     encoding: "utf-8",
