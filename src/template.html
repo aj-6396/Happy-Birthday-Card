@@ -144,20 +144,36 @@
         <h2 class="gallery-title">Our Memories</h2>
         <div class="gallery-grid">
           <div class="polaroid">
-            <img class="gallery-img" src="./resources/img/memory1.png" alt="Memory 1" />
+            <img class="gallery-img" src="./resources/img/memory1.jpg" alt="Memory 1" />
             <p class="polaroid-caption">Best moments! 🚗</p>
           </div>
           <div class="polaroid">
-            <img class="gallery-img" src="./resources/img/memory2.png" alt="Memory 2" />
+            <img class="gallery-img" src="./resources/img/memory2.jpg" alt="Memory 2" />
             <p class="polaroid-caption">Laughs & Smiles ✨</p>
           </div>
           <div class="polaroid">
-            <img class="gallery-img" src="./resources/img/memory3.png" alt="Memory 3" />
+            <img class="gallery-img" src="./resources/img/memory3.jpg" alt="Memory 3" />
             <p class="polaroid-caption">Happy Birthday! 🎂</p>
           </div>
         </div>
+        <button class="wish-modal-btn">Make a Birthday Wish 💖✨</button>
       </div>
     </div>
+
+    <!-- Birthday Wish Modal -->
+    <div class="wish-modal-overlay" id="wishModal" style="display: none;">
+      <div class="wish-modal">
+        <button class="modal-close-btn" id="closeWishModalBtn">&times;</button>
+        <div class="wish-modal-icon">🎂✨</div>
+        <h2 class="wish-modal-title">A Special Wish for {{^NAME}}! 💖</h2>
+        <div class="wish-modal-body">
+          <p>May your life be blessed with endless happiness, true love, boundless success, and unforgettable moments. May every path you walk lead to joy and fulfillment!</p>
+          <p class="wish-highlight">Wish You The Happiest Birthday Ever! 🌟🎉</p>
+        </div>
+        <button class="celebrate-btn" id="celebrateWishBtn">Blow Candles & Celebrate! 🥳🎉</button>
+      </div>
+    </div>
+
 
     <div class="flash"></div>
 

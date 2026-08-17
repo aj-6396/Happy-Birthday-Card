@@ -231,4 +231,62 @@ export const animate = function () {
       }, 500);
     });
   }
+
+  // Birthday Wish Modal Event Listeners
+  const wishModalBtn = document.querySelector(".wish-modal-btn");
+  const wishModal = document.getElementById("wishModal");
+  const closeWishModalBtn = document.getElementById("closeWishModalBtn");
+  const celebrateWishBtn = document.getElementById("celebrateWishBtn");
+
+  if (wishModalBtn && wishModal) {
+    wishModalBtn.addEventListener("click", () => {
+      wishModal.style.display = "flex";
+      setTimeout(() => {
+        wishModal.classList.add("active");
+      }, 50);
+    });
+  }
+
+  const closeWish = () => {
+    if (wishModal) {
+      wishModal.classList.remove("active");
+      setTimeout(() => {
+        wishModal.style.display = "none";
+      }, 400);
+    }
+  };
+
+  if (closeWishModalBtn) {
+    closeWishModalBtn.addEventListener("click", closeWish);
+  }
+
+  if (wishModal) {
+    wishModal.addEventListener("click", (e) => {
+      if (e.target === wishModal) closeWish();
+    });
+  }
+
+  if (celebrateWishBtn) {
+    celebrateWishBtn.addEventListener("click", () => {
+      const blastAud = document.querySelector(".blast-aud");
+      if (blastAud) {
+        blastAud.currentTime = 0;
+        blastAud.play().catch(() => {});
+      }
+      const emojis = ["🎉", "✨", "🎂", "🎈", "💖", "⭐", "🥳", "🎁"];
+      for (let i = 0; i < 22; i++) {
+        setTimeout(() => {
+          const heart = document.createElement("div");
+          heart.className = "click-heart";
+          heart.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+          heart.style.left = `${Math.random() * (window.innerWidth - 80) + 40}px`;
+          heart.style.top = `${Math.random() * (window.innerHeight - 80) + 40}px`;
+          heart.style.zIndex = "9999999";
+          document.body.appendChild(heart);
+          setTimeout(() => heart.remove(), 1400);
+        }, i * 60);
+      }
+    });
+  }
 };
+
